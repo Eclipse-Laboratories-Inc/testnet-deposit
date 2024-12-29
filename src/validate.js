@@ -1,5 +1,5 @@
 import bs58 from 'bs58';
-import PublicKey from '@solana/web3.js';
+import { PublicKey } from '@solana/web3.js';
 
 // List of known Solana native program addresses
 const SOLANA_NATIVE_PROGRAMS = new Set([
@@ -20,7 +20,7 @@ export function validateSolanaAddress(address) {
       throw new Error('Invalid length for a Solana address.');
     }
 
-    // TODO: finish validation for solana addres
+    // TODO: finish validation for Solana address
     // // Convert the decoded address to a PublicKey object
     // const publicKey = new PublicKey(decoded);
     //
