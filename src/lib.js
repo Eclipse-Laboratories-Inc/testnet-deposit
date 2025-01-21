@@ -24,7 +24,7 @@ export async function runDeposit({ destination, amount, chainName, keyFile }) {
       );
     }
 
-    // Retrieve and validate the private key from file
+    // Retrieve and validate the private key from the file
     let privateKey = getPrivateKeyFromFile(keyFile);
     if (!privateKey.startsWith('0x')) {
       privateKey = `0x${privateKey}`;
