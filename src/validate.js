@@ -20,19 +20,18 @@ export function validateSolanaAddress(address) {
       throw new Error('Invalid length for a Solana address.');
     }
 
-    // TODO: finish validation for solana addres
-    // // Convert the decoded address to a PublicKey object
-    // const publicKey = new PublicKey(decoded);
-    //
-    // // Check if the address is a known native program
-    // if (SOLANA_NATIVE_PROGRAMS.has(publicKey.toString())) {
-    //   throw new Error('Address is a reserved Solana native program.');
-    // }
-    //
-    // // Additional check using Solana Web3's PublicKey class for verification
-    // if (!PublicKey.isOnCurve(publicKey.toBuffer())) {
-    //   throw new Error('Address is not a valid Ed25519 public key.');
-    // }
+    // Convert the decoded address to a PublicKey object
+    const publicKey = new PublicKey(decoded);
+
+    // Check if the address is a known native program
+    if (SOLANA_NATIVE_PROGRAMS.has(publicKey.toString())) {
+      throw new Error('Address is a reserved Solana native program.');
+    }
+
+    // Additional check using Solana Web3's PublicKey class for verification
+    if (!PublicKey.isOnCurve(publicKey.toBuffer())) {
+      throw new Error('Address is not a valid Ed25519 public key.');
+    }
 
     return true;
   } catch (error) {
